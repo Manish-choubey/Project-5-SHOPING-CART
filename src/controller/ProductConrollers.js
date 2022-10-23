@@ -33,7 +33,7 @@ const createProduct = async function (req, res) {
  
         if (!price || price == 0) return res.status(400).send({ status: false, message: "price cannot be empty" })
         if (!Number(price)) return res.status(400).send({ status: false, message: "price should be in valid number/decimal format" })
-        data.price = Number(price).toFixed(2)
+        data.price = Number(price)
  
         if (currencyId && currencyId.trim().length !== 0) {
             if (currencyId !== "INR") return res.status(400).send({ status: false, message: "only indian currencyId is allowed and the type should be string" })
